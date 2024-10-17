@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bababa</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pbg3jpk.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="image-container"></div>
+    <!-- Morphing text container -->
+    <div id="morph-container">
+        <p id="text1">
+            Nullam auctor sit amet purus eu maximus. Donec efficitur pellentesque nisi.Nullam auctor sit amet purus eu maximus. Donec efficitur pellentesque nisi.
+        </p>
+        <p id="text2">
+            Certainly elsewhere my do allowance at. The address farther six hearted hundred towards husband. Certainly elsewhere my do allowance at. The address farther six hearted hundred towards husband.
+        </p>
+    </div>
+
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic"
+                    type="matrix"
+                    values="1.5 0 0 0 0
+                            0 1.5 0 0 0
+                            0 0 1.5 0 0
+                            0 0 0 1 0" />
+            </filter>
+    
+            <!-- Gooey effect filter -->
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  
+                                                              0 1 0 0 0  
+                                                              0 0 1 0 0  
+                                                              0 0 0 150 -100" result="gooey" />
+                <feBlend in="SourceGraphic" in2="gooey" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
