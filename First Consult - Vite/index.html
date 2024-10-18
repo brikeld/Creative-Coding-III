@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bababa</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pbg3jpk.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="image-container"></div>
+    <div id="morph-container">
+        <p id="text1">
+            Algeron m’a fait promettre, quand j’arriverai à des études du niveau collège dans quelques semaines, de ne pas lire de livres de psychologie – jusqu’à ce qu’il m’en donne la permission. Il dit que cela m’embrouillera et me fera penser en fonction de théories psychologiques au lieu de suivre mes propres idées et mes propres sentiments. (...) Je n’avais jamais eu l’idée que des hommes  et des femmes agissent ainsi.
+        </p>
+        <p id="text2">
+            Maintenant, je comprends que l’une des grandes raisons d’aller au collège et de s’instruire, c’est d’apprendre que les choses auxquelles on a cru toute sa vie ne sont pas vraies, et que rien n’est ce qu’il paraît être. 
+        </p>
+    </div>
+
+
+    <svg id="filters">
+        <defs>
+            <filter id="threshold">
+                <feColorMatrix in="SourceGraphic"
+                    type="matrix"
+                    values="1.5 0 0 0 0
+                            0 1.5 0 0 0
+                            0 0 1.5 0 0
+                            0 0 0 1 0" />
+            </filter>
+    
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  
+                                                              0 1 0 0 0  
+                                                              0 0 1 0 0  
+                                                              0 0 0 150 -100" result="gooey" />
+                <feBlend in="SourceGraphic" in2="gooey" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
